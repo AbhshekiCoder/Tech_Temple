@@ -10,6 +10,7 @@ app.use(cors());
 const register = require('./api/users/Register');
 const login = require('./api/users/Login');
 const user_profile_update = require('./api/users/Update');
+const user_password_reset = require('./api/users/Password_Reset');
 
 const url = "mongodb+srv://projects:123456ytrewq@cluster0.0qqnloi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -27,6 +28,7 @@ mongodbConnect();
 app.post('/register', register);
 app.post('/login', login);
 app.put('/user_profile_update', user_profile_update);
+app.post('/user_password_reset', user_password_reset);
 app.get('/', (req, res)=>{
     res.send('<h1>hello</h1>')
 })
