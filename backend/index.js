@@ -7,13 +7,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
-const register = require('./api/users/Register');
-const login = require('./api/users/Login');
-const user_profile_update = require('./api/users/Update');
-const user_password_reset = require('./api/users/Password_Reset');
-
-const url = "mongodb+srv://projects:123456ytrewq@cluster0.0qqnloi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
 function mongodbConnect(){
     mongoose.connect('mongodb+srv://projects:123456ytrewq@cluster0.0qqnloi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=>{
         console.log('connected');
@@ -21,9 +14,16 @@ function mongodbConnect(){
     }).catch((err)=>{
         console.log(err.message);
     })
-
 }
+
 mongodbConnect();
+const register = require('./api/users/Register');
+const login = require('./api/users/Login');
+const user_profile_update = require('./api/users/Update');
+const user_password_reset = require('./api/users/Password_Reset');
+
+const url = "mongodb+srv://projects:123456ytrewq@cluster0.0qqnloi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+ mongodbConnect();
 
 app.post('/register', register);
 app.post('/login', login);
