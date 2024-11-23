@@ -37,7 +37,7 @@ app.use('/login', login);
 app.use('/user_profile_update', user_profile_update);
 app.use('/user_password_reset', user_password_reset);
 app.use('/register_apps', register_apps);
-app.use('/user_detail', user_detail);
+app.post('/user_detail', user_detail);
 app.use('/courses', courses);
 app.use('/user_review', user_review)
 app.use('/review', review)
