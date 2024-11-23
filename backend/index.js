@@ -45,7 +45,7 @@ app.use('/customer_contact', customer_contact);
 app.use('/signin', signin)
 app.use('/enroll_courses/:id', enroll_courses)
 app.use('/quiz', quiz)
-app.use('/course_detail', (req, res)=>{
+app.post('/course_detail', (req, res)=>{
     const client = new MongoClient(url);
     const db = client.db("Tech_Temple");
     const collection = db.collection("courses");
