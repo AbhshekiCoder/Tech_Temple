@@ -4,11 +4,14 @@ const {MongoClient} = require('mongodb');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const mongodbConnect = require('./config/ConnectDB');
+const dotenv = require('dotenv');
 const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors())
+dotenv.config()
 
+let url = process.env.URL;
 
 const register = require('./api/users/Register');
 const login = require('./api/users/Login');
